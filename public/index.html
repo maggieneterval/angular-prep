@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Angular Checkpoint</title>
+  <base href="/">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!--external CSS dependencies-->
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+  <!--local CSS dependencies-->
+  <link rel="stylesheet" href="/app/main.css" />
+  <!--external JS dependencies-->
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/angular/angular.min.js"></script>
+  <script src="/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <!--local JS dependencies-->
+  <script src="/app/main.js"></script>
+  <script src="/components/navbar/navbar.directive.js"></script>
+  <script src="/app/tweets/tweet.factory.js"></script>
+  <script src="/app/tweets/list/tweet.list.state.js"></script>
+  <script src="/app/tweets/list/tweet.list.controller.js"></script>
+  <script src="/app/tweets/item/tweet.item.directive.js"></script>
+  <script src="/app/tweets/item/tweet.item.controller.js"></script>
+  <script src="/app/tweets/detail/tweet.detail.state.js"></script>
+  <script src="/app/tweets/detail/tweet.detail.controller.js"></script>
+</head>
+
+<body ng-app="angularCheckpoint">
+  <navbar></navbar>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-9">
+        <ui-view></ui-view>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

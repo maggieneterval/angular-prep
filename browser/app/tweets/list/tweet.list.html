@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <form ng-submit="post()">
+      <h4>Post your tweet</h4>
+      <span>
+          <label for="name_field">Name:</label>
+          <input name="name" type="text" id="name_field" ng-model="tweet.name" />
+        </span>
+      <span>
+          <label for="text_field">Text:</label>
+          <input name="text" type="text" id="text_field" ng-model="tweet.text" />
+        </span>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+  </div>
+  <div>
+    <span><button class="btn-xs btn-info" ng-click="sortBy('dateCreated')">Sort by date</button> <button class="btn-xs btn-info" ng-click="sortBy('User.name')">Sort by user</button> <span class="glyphicon" ng-class="{'glyphicon-chevron-down': !reverse, 'glyphicon-chevron-up': reverse}"></span></span>
+  </div>
+  <tweet-item ng-repeat="tweet in tweets | orderBy:listOrder:reverse" tweet="tweet"></tweet-item>
+</div>

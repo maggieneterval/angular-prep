@@ -1,0 +1,36 @@
+body {
+	background-color: #f0f0f0;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.tweetbox {
+  padding: 7px;
+}
+
+.tweetbox img {
+  float: left;
+  height: 75px;
+  width: 75px;
+}
+.content {
+  height: 75px;
+  margin-left: 90px;
+}
+.content .by {
+  font-weight: bold;
+}
+
+.input-group-addon {
+	background-color: white;
+}
+
+a {
+  cursor: pointer;
+}
+
+red {
+  background-color: red;
+}

@@ -1,0 +1,8 @@
+{
+    "username": "fellowprep",
+    "password": "preppylife",
+    "database": "angularprep",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false
+}

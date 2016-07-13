@@ -1,0 +1,8 @@
+<div class="tweetbox">
+  <img ng-src="{{tweet.User.pictureUrl}}">
+  <div class="content">
+    <p class="by">{{tweet.User.name}}</p>
+    <p>{{tweet.text}}</p>
+    <h6><a ui-sref="tweet({tweetId: tweet.id})">{{ tweet.dateCreated | date:"h:mm:ss a - d MMM yyyy" }}</a> <span class="glyphicon" ng-class="{'glyphicon-star': tweet.favorite, 'glyphicon-star-empty': !tweet.favorite}" ng-click="toggleFavorite()"></span></h6>
+  </div>
+</div>
