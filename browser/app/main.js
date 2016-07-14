@@ -25,9 +25,5 @@ app.config(function ($urlRouterProvider, $locationProvider, $httpProvider) {
   });
 });
 
-// globals needed for the specs - don't delete!
+// global needed for the specs - don't delete!
 var tweetItemDirective = function () {};
-
-// these are simply defined here to reduce the number of
-// initial errors in the specs when starting out
-// you can ignore these if you wish
