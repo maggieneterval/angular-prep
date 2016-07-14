@@ -20,8 +20,9 @@ describe('Tweet item', function () {
       expect(ddo.scope).to.be.an('object');
     });
 
+    // remember camelCase and kebab-case rules
     it('accepts a model parameter `tweet`', function () {
-      expect(ddo.scope.tweet).to.equal('=');
+      expect(ddo.scope.tweet).to.equal('=tweetToUse');
     });
 
   });

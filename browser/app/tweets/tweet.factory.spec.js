@@ -102,8 +102,8 @@ describe('`Tweet` factory', function () {
       .expect('POST', '/api/tweets', fakeReqTweet)
       .respond(201, fakeResTweet);
     TweetFactory.postTweet(fakeReqTweet)
-      .then(function (todo) {
-        expect(todo).to.deep.equal(fakeResTweet);
+      .then(function (tweet) {
+        expect(tweet).to.deep.equal(fakeResTweet);
       })
       .catch(done);
     $httpBackend.flush();
@@ -116,8 +116,8 @@ describe('`Tweet` factory', function () {
       .expect('PUT', '/api/tweets/' + fakeReqTweet.id, {favorite: false})
       .respond(200, fakeResTweet);
     TweetFactory.favoriteTweet(fakeReqTweet)
-      .then(function (todo) {
-        expect(todo).to.deep.equal(fakeResTweet);
+      .then(function (tweet) {
+        expect(tweet).to.deep.equal(fakeResTweet);
       })
       .catch(done);
     $httpBackend.flush();

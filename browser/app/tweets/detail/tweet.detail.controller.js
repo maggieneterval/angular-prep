@@ -1,3 +1,3 @@
-app.controller('TweetCtrl', function () {
-
+app.controller('TweetCtrl', function ($scope, theTweet) {
+  $scope.tweet = theTweet;
 });
