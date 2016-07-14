@@ -1,24 +1,24 @@
 'use strict';
 var expect = chai.expect;
 
-describe('Todos detail', function () {
+describe('Tweets detail', function () {
 
   beforeEach(module('angularCheckpoint'));
 
   describe('controller `TweetDetailCtrl`', function(){
 
-    var $scope, tweet;
+    var $scope, theTweet;
     beforeEach(inject(function ($rootScope, $controller) {
       $scope = $rootScope.$new();
-      tweet = {};
+      theTweet = {};
       $controller('TweetCtrl', {
         $scope: $scope,
-        tweet: tweet
+        theTweet: theTweet
       });
     }));
 
     it('places an injected `tweet` on the scope', function(){
-      expect($scope.tweet).to.equal(tweet);
+      expect($scope.tweet).to.equal(theTweet);
     });
 
   });
@@ -38,13 +38,13 @@ describe('Todos detail', function () {
     }));
 
     it('url compiles correctly', function () {
-      var url = $state.href('tweet', {tweetId: '123'});
-      expect(url).to.equal('/tweets/123');
+      var url = $state.href('singleTweet', {tweetId: '123'});
+      expect(url).to.equal('/123');
     });
 
-    it('resolves with a specific `todo` from the `Todo` factory', function (done) {
-      var tweetDetailState = $state.get('tweet');
-      var fn = tweetDetailState.resolve.tweet;
+    it('resolves with a specific `tweet` from the `TweetFactory` factory', function (done) {
+      var tweetDetailState = $state.get('singleTweet');
+      var fn = tweetDetailState.resolve.theTweet;
       expect(fn).to.be.a('function');
       var uniqueId = {};
       var result = $injector.invoke(fn, null, {

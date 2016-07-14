@@ -17,5 +17,5 @@
   <div>
     <span><button class="btn-xs btn-info" ng-click="sortBy('dateCreated')">Sort by date</button> <button class="btn-xs btn-info" ng-click="sortBy('User.name')">Sort by user</button> <span class="glyphicon" ng-class="{'glyphicon-chevron-down': !reverse, 'glyphicon-chevron-up': reverse}"></span></span>
   </div>
-  <tweet-item ng-repeat="tweet in tweets | orderBy:listOrder:reverse" tweet="tweet"></tweet-item>
+  <tweet-item ng-repeat="tweet in tweets | orderBy:listOrder:reverse" tweet-to-use="tweet"></tweet-item>
 </div>

@@ -7,10 +7,10 @@ describe('Tweets list', function () {
 
   describe('controller `TweetListCtrl`', function () {
 
-    var $scope, TweetFactory, $state, tweets;
+    var $scope, TweetFactory, $state, allTweets;
     beforeEach(inject(function($rootScope, $q, $controller, _$state_){
       $scope = $rootScope.$new();
-      tweets = [];
+      allTweets = [];
       TweetFactory = {
         postTweet: chai.spy(function () {
           return $q.when({id: '123'});
@@ -24,14 +24,14 @@ describe('Tweets list', function () {
 
       $controller('TweetListCtrl', {
         $scope: $scope,
-        tweets: tweets,
+        allTweets: allTweets,
         TweetFactory: TweetFactory,
         $state: $state
       });
     }));
 
     it('places injected `tweets` on the scope', function(){
-      expect($scope.tweets).to.equal(tweets);
+      expect($scope.tweets).to.equal(allTweets);
     });
 
     it('initializes `reverse` and `listOrder` on the scope', function () {
@@ -58,18 +58,19 @@ describe('Tweets list', function () {
 
     });
 
-    describe('`.addTodo` scope method', function () {
+    describe('`.post` scope method', function () {
 
       it('uses the `TweetFactory` factory', function () {
         $scope.post();
         expect(TweetFactory.postTweet).to.have.been.called.once.with($scope.tweet);
       });
 
-      it("goes to the todo's edit state after it has been added", function () {
+      // This should pass once you have defined the `singleTweet` state
+      it("goes to the tweet's state after it has been added", function () {
         $scope.post();
-        expect($state._mockUrl).not.to.equal('/tweets/123');
+        expect($state._mockUrl).not.to.equal('/123');
         $scope.$digest();
-        expect($state._mockUrl).to.equal('/tweets/123');
+        expect($state._mockUrl).to.equal('/123');
       });
 
     });
@@ -96,8 +97,8 @@ describe('Tweets list', function () {
     });
 
     it('resolves with all `tweets` from the `TweetFactory` factory', function (done) {
-      var todoListState = $state.get('tweets');
-      var fn = todoListState.resolve.tweets;
+      var tweetListState = $state.get('tweets');
+      var fn = tweetListState.resolve.allTweets;
       expect(fn).to.be.a('function');
       var result = $injector.invoke(fn, null, {
         TweetFactory: TweetFactory
